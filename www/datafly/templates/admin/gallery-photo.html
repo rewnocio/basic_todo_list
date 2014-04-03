@@ -1,0 +1,8 @@
+<li>
+    <button class="delete-img btn-danger">&times;</button>
+    <img src="{{ pic or
+                 'http://placehold.it/280x280&text=max:'+size[0]+'x'+size[1] }}"
+         data-fit-width="{{ size[0] }}" data-fit-height="{{ size[1] }}" data-crop="yes"
+         data-clip="photo{{ index }}"
+         class="get-photo">    
+</li>    

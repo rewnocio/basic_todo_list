@@ -1,0 +1,11 @@
+<link href="/static/redactor-9.0.3/redactor.css?{{ config.CACHE_TIMESTAMP }}"
+      rel="stylesheet">
+
+{% if env == 'Development' %}
+    {% for path in assets.css.admin %}
+        <link href="{{ get_static_path(path, 'css') }}" rel="stylesheet">
+    {% endfor %}    
+{% else %}
+    <link href="/static/compiled/admin.min.css?{{ config.CACHE_TIMESTAMP }}"
+          rel="stylesheet">    
+{% endif %}

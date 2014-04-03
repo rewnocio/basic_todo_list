@@ -1,0 +1,34 @@
+{% set namespace = 'blog' %}
+{% extends layout %}
+
+{% block content %}
+
+<h2 class="admin">Blog</h2>
+
+<a href="/admin/blog/new" class="btn btn-primary">New Post</a>
+
+<table class="table table-striped blog">
+    <thead>
+        <th class="date">Published</th>
+        <th class="title">Title</th>
+        <th></th>
+    </thead>    
+    {% for post in posts %}    
+    <tr class="{{ 'disabled' if post.meta.hide }}">
+        <td class="date">{{ post.meta.created|strftime(data.date_format_short) }}</td>                
+        <td class="title">
+            <a href="/admin/{{ post.id }}">
+                {{ post.meta.title }}
+            </a>            
+        </td>
+        <td>
+            <a href="#hide" data-id="{{ post._id }}"
+               class="del {{ 'hide' if post.meta.hide }}">Hide</a>
+            <a href="#hide" data-id="{{ post._id }}"
+               class="undel {{ 'hide' if not post.meta.hide }}">Show</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

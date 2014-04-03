@@ -1,0 +1,22 @@
+<aside class="blog">
+    <h4>Latest Posts</h4>
+    {% for p in latest_posts  %}
+        <p><a href="/{{ p.id }}">{{ p.meta.title }}</a></p>
+    {% endfor %}
+    <h4>Search</h4>
+    <form action="/blog" class="form-search">
+        <input type="text" name="q" class="input-medium search-query"
+        value="{{ query }}">
+        <!--
+        <button type="submit" class="btn">
+            &gt;
+        </button>
+        -->
+    </form>
+    <h4>Subscribe</h4>
+    <p><a href="/blog/rss.xml">RSS</a></p>
+    <h4>Archive</h4>
+    <p>
+        <a href="/blog/archive/2013/12">December 2013</a> <br>
+    </p>    
+</aside>

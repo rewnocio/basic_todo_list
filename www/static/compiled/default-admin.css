@@ -1,0 +1,198 @@
+html,
+body {
+  height: 100%;
+}
+body,
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Lato', sans-serif;
+}
+#login label {
+  font-weight: normal;
+}
+body.admin {
+  font-size: 14px;
+  line-height: 1.5;
+  padding-top: 50px;
+}
+body.admin > header {
+  position: fixed;
+  z-index: 1000;
+  top: 0px;
+  width: 100%;
+  height: 35px;
+  background-color: #197DCE;
+  color: #fff;
+  border-bottom: 1px solid #000;
+}
+body.admin > header h1 {
+  padding: 0px;
+  padding-top: 9px;
+  margin: -3px 0px 0px 30px;
+  font-size: 20px;
+  font-weight: normal;
+}
+body.admin > header div.toolbar {
+  position: absolute;
+  left: 220px;
+  width: 100%;
+  max-width: 1000px;
+  top: 1px;
+  padding-top: 2px;
+}
+body.admin > header div.toolbar .btn.pull-right {
+  margin-right: 10px;
+}
+body.admin > header div.toolbar-save {
+  position: relative;
+  z-index: 100;
+}
+body.admin > header div.toolbar-save .btn {
+  padding: 2px 10px 4px 10px;
+}
+body.admin > aside {
+  position: absolute;
+  top: 27px;
+  left: 0px;
+  width: 200px;
+  padding-top: 30px;
+  background-color: #ebebeb;
+  min-height: 100%;
+}
+body.admin > aside .nav-header,
+body.admin > aside .nav-list > li > a {
+  padding-left: 30px;
+}
+body.admin > aside .nav-list > li > a {
+  font-size: 13px;
+}
+body.admin > .content {
+  border-left: 200px solid #ebebeb;
+  padding-left: 20px;
+  max-width: 1000px;
+  padding-right: 20px;
+}
+body.admin > .content #hidden-upload {
+  position: absolute;
+  top: -9000px;
+  height: 1px;
+  overflow: hidden;
+}
+body.admin > .content h2.admin {
+  padding: 14px 0px;
+  margin: 0px 0px 10px 0px;
+}
+body.admin > .content .meta {
+  padding-top: 8px;
+  padding-left: 4px;
+  margin-bottom: 15px;
+  border-bottom: 1px dashed #bbb;
+}
+body.admin > .content .meta label {
+  color: #aaa;
+  font-size: 12px;
+}
+body.admin > .content .meta input {
+  font-size: 13px;
+  position: relative;
+  top: 0px;
+  left: 5px;
+  width: 80%;
+  box-shadow: none;
+  transition: none;
+  border: none;
+}
+body.admin > .content .meta input:focus {
+  outline: none;
+}
+body.admin > .content .meta:empty {
+  display: none;
+}
+body.admin > .content .redactor_box {
+  border: none;
+}
+body.admin > .content .redactor_box .redactor_editor {
+  overflow: visible;
+}
+body.admin > .content.default-page .redactor_box {
+  border: 0px;
+}
+.df-pagination {
+  float: right;
+  margin: 0px;
+  margin-right: 10px;
+}
+.redactor_toolbar {
+  background: none;
+  border: none;
+}
+.redactor_toolbar li {
+  margin-right: 2px !important;
+}
+.redactor_toolbar li.redactor_separator {
+  display: none;
+}
+.redactor_toolbar li > a {
+  background-color: #f0f0f0;
+  border-radius: 1px;
+  border: 0px;
+}
+.redactor_toolbar li > a.redactor_act,
+.redactor_toolbar li > a:hover {
+  background-color: #fff;
+}
+.toolbar-save .version {
+  display: inline-block;
+  background-color: #eee;
+  border-radius: 4px;
+}
+.toolbar-save .version a {
+  color: #000;
+}
+body.login form {
+  margin-top: 50px;
+  margin-left: 100px;
+}
+body.login form .switch-state {
+  display: none;
+}
+.alert {
+  margin-left: -15px;
+}
+.notifications {
+  position: fixed;
+  z-index: 10000;
+}
+.notifications.top-right {
+  right: 10px;
+  top: 25px;
+}
+.notifications.top-left {
+  left: 10px;
+  top: 25px;
+}
+.notifications.bottom-left {
+  left: 10px;
+  bottom: 25px;
+}
+.notifications.bottom-right {
+  right: 10px;
+  bottom: 25px;
+}
+.notifications > div {
+  position: relative;
+  z-index: 9999;
+  margin: 5px 0px;
+}
+.notifications.center {
+  top: 48%;
+  left: 0;
+  width: 100%;
+}
+.notifications.center > div {
+  margin: 5px auto;
+  width: 20%;
+  text-align: center;
+}

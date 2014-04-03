@@ -1,0 +1,45 @@
+{% set namespace = 'admin-gallery' %}
+{% extends layout %}
+
+{% block header %}
+<div class="toolbar-save pull-right">
+    <button id="new-photo" class="btn btn-success">
+        New Photo
+    </button>
+    <button id="save-gallery" class="btn btn-primary">
+        Save
+    </button>
+</div>
+{% endblock %}
+
+{% block meta %}
+    <input type="hidden" name="sort" value="{{ gallery.sort or 0 }}">
+    <input type="hidden" name="id" value="{{ gallery.id or 'new' }}">
+    <div class="control-group">
+        <label>Title:</label>
+        <input type="text" name="title"
+               value="{{ gallery.title or 'Main' }}"
+               placeholder="Enter title here...">
+    </div>  
+    <div class="control-group">
+        <label>Description:</label>
+        <textarea name="desc" class="desc autoresize"
+            placeholder="Enter description here...">{{ gallery.desc }}</textarea>
+    </div>      
+{% endblock %}
+
+{% block content %}
+
+    <script type="text/template" id="photo-template">
+        {% set index = '<%= index %>' %}
+        {% include 'admin/gallery-photo.html' %}
+    </script>
+
+    <ul class="photos">
+        {% for pic in gallery.pics %}
+            {% set index = loop.index %}
+            {% include 'admin/gallery-photo.html' %}
+        {% endfor %}
+    </ul>
+
+{% endblock %}

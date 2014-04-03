@@ -1,0 +1,8 @@
+{% if env != 'Development' %}
+    <script src="//d3nslu0hdya83q.cloudfront.net/dist/1.0/raven.min.js"></script>
+    <script>
+        // Sentry
+        var options = {};
+        Raven.config('{{ config.SENTRY.JS }}', options).install();
+    </script>
+{% endif %}

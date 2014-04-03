@@ -1,0 +1,31 @@
+# NGINX CONFIGURATION FILES
+
+- name: copy production host
+  when: host is defined
+  template: src=$project_root/server/site.nginx
+            dest=/etc/nginx/sites-enabled/${project}
+  notify:
+    - restart nginx
+
+- name: copy staging hosts
+  when: host_staging is defined
+  template: src=$project_root/server/site_staging.nginx
+            dest=/etc/nginx/sites-enabled/${project}_staging
+  notify:
+    - restart nginx
+
+# UWSGI CONFIGURATION FILES
+
+- name: upload production uWSGI ini configuration file
+  when: host is defined
+  template: src=$project_root/server/uwsgi.ini
+            dest=/etc/uwsgi/vassals/${project}.ini
+  notify:
+    - restart uwsgi
+
+- name: upload staging uWSGI configuration file
+  when: host_staging is defined
+  template: src=$project_root/server/uwsgi_staging.ini
+            dest=/etc/uwsgi/vassals/${project}_staging.ini
+  notify:
+    - restart uwsgi

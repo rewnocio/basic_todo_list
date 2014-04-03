@@ -1,0 +1,17 @@
+---
+- hosts: remote
+  connection: ssh
+  user: root
+  gather_facts: no
+  tasks:
+    - action: command apt-get update
+    - name: install pip and python-dev
+      action: apt pkg=$item
+      with_items:
+        - python-pip
+        - build-essential
+        - python-dev
+    - name: install keyczar for Ansible accelerate mode
+      action: pip name=$item
+      with_items:
+        - python-keyczar

@@ -1,0 +1,56 @@
+{% set namespace = 'home' %}
+
+{% import 'editor.html' as editor with context %}
+{% extends layout %}
+
+{% block content %}
+
+<form role="form" action="/save_tasks/" method="post">
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th style="width: 20%; text-align: center;">Final date</th>
+            <th style="width: 70%; text-align: center;">Short Task Description</th>
+            <th style="width: 10%; text-align: center;">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for task in tasks_list %}
+        <tr>
+            <td style="text-align: center;">
+                <input name="old_date_{{ task._id }}" class="form-control" style="text-align: center;" type="hidden" 
+                disabled="disabled" value="{{ task.date }}">
+                {{ task.date }}
+            </td>
+            <td>
+                <input name="old_description_{{ task._id }}" class="form-control" type="hidden" 
+                disabled="disabled" value="{{ task.description }}">
+                {{ task.description }}
+            </td>
+            <td style="text-align: center;">
+                <a class="btn btn-primary btn-xs" href="/delete/{{ task._id }}/">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td style=" vertical-align: middle;">
+                <div class="form-group" style="text-align: center; margin-bottom: 0;">
+                    <input name="new_date" type="date" class="form-control" style="text-align: center;" placeholder="yyyy-mm-dd">
+                </div>
+            </td>
+            <td>
+                <input name="new_description" class="form-control" placeholder="Enter task decsiption...">
+            </td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+
+<div>
+    <button type="submit" class="btn btn-primary pull-left">Save</button>
+</div>
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% set namespace = 'blog' %}
+{% set show_editor = True %}
+{% extends layout %}
+
+{% block meta %}
+    <br>
+    <a href="/admin/blog" class="back">&lt; Back to posts</a>
+{% endblock %}
+
+{% block content %}
+<div class="post text" data-clip="content">
+    {{ page.content or lipsum(2) }}
+</div>
+{% endblock %}

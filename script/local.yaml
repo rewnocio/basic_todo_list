@@ -1,0 +1,10 @@
+# ANSIBLE PLAYBOOK
+---
+
+- hosts: local
+  connection: local
+  gather_facts: false
+  vars_files:
+    - devops.yaml
+  tasks:
+    - include: $ansible/local.yaml

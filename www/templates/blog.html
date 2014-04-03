@@ -1,0 +1,13 @@
+{% set namespace = 'blog' %}
+{% extends layout %}
+
+{% block content %}
+
+{% set blog_title = '' %}
+
+<section class="blog">
+    {% include "blog/posts.html" %}
+</section>
+{% include "blog/aside.html" %}
+
+{% endblock %}

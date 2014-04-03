@@ -1,0 +1,26 @@
+# base
+bottle
+Jinja2
+pymongo
+
+# password hashing
+passlib
+
+# imaging library
+pillow
+
+# extensions to datetime
+python-dateutil
+
+# timezone calculations
+pytz
+
+# mailer
+mandrill
+
+# Sentry
+raven
+
+#rss
+lxml
+feedgen

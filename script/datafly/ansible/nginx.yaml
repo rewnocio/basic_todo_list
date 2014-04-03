@@ -1,0 +1,6 @@
+- name: add nginx ppa
+  action: apt_repository repo=ppa:nginx/stable
+- name: install nginx
+  action: apt pkg=nginx
+- name: ensure nginx is running
+  action: service name=nginx state=started

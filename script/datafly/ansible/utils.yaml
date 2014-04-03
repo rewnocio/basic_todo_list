@@ -1,0 +1,28 @@
+- action: command apt-get update
+
+- name: install add-apt-repository and rsync
+  action: apt pkg=$item
+  with_items:
+    - python-software-properties
+    - rsync
+    - curl    
+    - libcurl4-gnutls-dev
+
+- name: install virtualenv
+  action: pip name=$item
+  with_items:
+    - virtualenv
+    - pycurl
+
+- name: install uWSGI and lxml dependencies
+  action: apt pkg=$item
+  with_items:
+    - libxml2-dev
+    - libxslt1-dev
+
+- name: install Pillow dependencies
+  action: apt pkg=$item
+  with_items:
+    - libjpeg8-dev
+    - zlib1g-dev
+    - libfreetype6-dev

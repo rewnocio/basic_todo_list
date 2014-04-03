@@ -1,0 +1,15 @@
+{% if env == 'Development' %}
+    <script src="/static/jquery-1.10.2.js"></script>
+    <script src="/static/underscore-1.5.2.js"></script>
+
+    {% if config.LIVERELOAD %}
+        <script src="http://127.0.0.1:35729/livereload.js"></script>    
+    {% endif %}   
+
+{% else %}
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+{% endif %}
+
+<script src="/static/bootstrap-3.0.0/bootstrap.min.js"></script>
+<script src="/static/bootstrap-3.0.0/bootstrap-notify.js"></script>

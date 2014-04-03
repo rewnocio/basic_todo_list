@@ -1,0 +1,22 @@
+- name: install uwsgi
+  action: pip name=uwsgi
+
+- name: upload Upstart script for uWSGI
+  template: src=$ansible/templates/uwsgi.conf
+            dest=/etc/init/
+
+- name: ensure uWSGI has proper permission for writing log files
+        and reading vassals directory
+  file: path=/etc/uwsgi/vassals state=directory
+        owner=www-data group=www-data
+- action: command touch /var/log/uwsgi.log
+- file: path=/var/log/uwsgi.log state=file
+        owner=www-data group=www-data
+- file: path=/var/log/uwsgi state=directory
+        owner=www-data group=www-data
+- action: command touch /var/log/uwsgi/emperor.log
+- file: path=/var/log/uwsgi/emperor.log state=file
+        owner=www-data group=www-data
+
+- name: start uWSGI
+  action: service name=uwsgi state=started

@@ -1,0 +1,52 @@
+body.admin-gallery span.cat {
+  text-transform: uppercase;
+}
+body.admin-gallery textarea.desc {
+  display: block;
+  width: 100%;
+  border: none;
+  font-size: 13px;
+  color: #000;
+  outline: none;
+  overflow-y: hidden;
+}
+body.admin-gallery ul.photos {
+  list-style: none;
+  padding: 0px;
+}
+body.admin-gallery ul.photos li {
+  position: relative;
+  background-color: #eee;
+  float: left;
+  padding: 10px;
+  text-align: center;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  width: 300px;
+  height: 310px;
+  line-height: 290px;
+}
+body.admin-gallery ul.photos li img {
+  max-height: 280px;
+  max-width: 280px;
+}
+body.admin-gallery ul.photos li button.delete-img {
+  font-family: Arial, sans-serif;
+  position: absolute;
+  z-index: 100;
+  top: -12px;
+  right: -10px;
+  width: 25px;
+  height: 26px;
+  padding: 0px;
+  border-radius: 14px;
+  border: 0px;
+  font-size: 16px;
+  line-height: 28px;
+}
+body.admin-gallery ul.photos li.sortable-placeholder {
+  border: 2px dashed #4aa;
+  width: 300px;
+  margin: 0px 12px 20px 0px;
+  height: 310px;
+}

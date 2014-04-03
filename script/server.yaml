@@ -1,0 +1,20 @@
+# ANSIBLE PLAYBOOK
+---
+
+- hosts: remote
+  user: root
+  accelerate: true
+  gather_facts: false
+  vars_files:
+    - devops.yaml
+
+  # EDIT BELOW
+  tasks:
+    - include: $ansible/utils.yaml
+    - include: $ansible/mosh.yaml
+    - include: $ansible/nginx.yaml
+    - include: $ansible/uwsgi.yaml
+    - include: $ansible/mongo.yaml
+    - include: $ansible/conf.yaml
+  handlers:
+    - include: $ansible/handlers.yaml

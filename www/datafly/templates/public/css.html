@@ -1,0 +1,8 @@
+{% if env == 'Development' %}
+    {% for path in assets.css.public %}
+        <link href="{{ get_static_path(path, 'css') }}" rel="stylesheet">
+    {% endfor %}    
+{% else %}
+    <link href="/static/compiled/public.min.css?{{ config.CACHE_TIMESTAMP }}"
+          rel="stylesheet">    
+{% endif %}

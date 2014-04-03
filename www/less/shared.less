@@ -1,0 +1,68 @@
+@import "bootstrap/variables.less";
+@import "bootstrap/mixins.less";
+
+.content {
+    h2 {
+        margin: 30px 0px;
+    }
+    padding-bottom: 30px;
+    overflow: auto;
+}
+
+
+body.home {    
+    div.person {
+        .make-row();
+        padding-bottom: 30px;
+        .photo {
+            .make-sm-column(3);
+            min-width: 250px;
+        }
+        .desc {
+            .make-sm-column(8);
+        }
+        h3 strong {
+            margin-right: 10px;
+        }
+    }
+}
+
+
+body.news {
+    .row {
+        .make-row();
+    }
+    article.news{
+        &.odd {
+            clear: both;
+        }        
+        padding-bottom: 20px;
+        .date {
+            color: #999;
+            margin-bottom: 10px;
+        }
+    }
+    article.news.multi{
+        margin-left: -10px;
+        margin-right: 10px;
+        .make-sm-column(6);
+    }
+}
+
+
+body.contact {
+    #contact-form {
+        .make-sm-column(6);
+        margin-bottom: 30px;
+    }
+    .address {
+        .make-sm-column-offset(1);
+        .make-sm-column(5);
+        .map {
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+        }
+    }
+}

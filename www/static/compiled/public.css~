@@ -1,0 +1,34 @@
+.wrapper {
+  max-width: 970px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0px auto;
+}
+body,
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Lato', sans-serif;
+}
+body > header h1 {
+  margin: 20px 0px;
+}
+.carousel-inner {
+  background: #888;
+}
+.carousel-inner > .item > img {
+  margin: 0px auto;
+}
+body > footer {
+  border-top: 1px solid #ccc;
+  padding: 20px 0px;
+}
+body.gallery h2 {
+  display: none;
+}
+
+td input.form-control {
+  height: 25px;
+  padding: 2px;
+}

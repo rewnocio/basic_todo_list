@@ -1,0 +1,11 @@
+{% if env == 'Development' %}
+    {% for path in assets.js.admin %}
+        <script src="{{ get_static_path(path, 'js') }}"></script>
+    {% endfor %}
+{% else %}  
+    <script src="/static/compiled/admin.min.js?{{ config.CACHE_TIMESTAMP }}"></script>        
+{% endif %}
+
+<!-- Redactor.JS -->    
+<script src="/static/redactor-9.0.3/redactor.min.js"></script>
+<script src="/static/redactor-9.0.3/externalswitcher.js"></script>

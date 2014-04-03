@@ -1,0 +1,18 @@
+{% if single_post %}
+    <h1 class="single_post">{{ p.meta.title }}</h1>
+{% else %}
+    <h2><a href="/{{ p.id }}">{{ p.meta.title }}</a></h2>
+{% endif %}
+<p class="published">
+    {{ p.meta.created|strftime(data.date_format_short) }}
+</p>
+<div class="text block-white">
+    {% if single_post %}
+        {{ p.content }}
+        {{ addthis(p) }}
+    {% else %}
+        {{ p.content|striptags|truncate(600, killwords=False) }}            
+        {{ addthis(p) }}
+        <a href="/{{ p.id }}" class="readpost">read more</a>
+    {% endif %}  
+</div> 

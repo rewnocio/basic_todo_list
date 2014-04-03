@@ -1,0 +1,54 @@
+{% set namespace = 'contact' %}
+{% extends layout %}
+
+{% block content %}
+
+<h2>Get in touch</h2>
+
+<form id="contact-form" action="" method="post" class="form-horizontal">
+    <div class="form-group">
+        <label for="contact-form-fullname" class="sr-only">Your full name</label>
+        <input id="contact-form-fullname" type="text" name="fullname" placeholder="Your name" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="contact-form-email" class="sr-only">Your e-mail address</label>
+        <input id="contact-form-email" type="text" name="email" placeholder="Your e-mail" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="contact-form-message" class="sr-only">Your message</label>
+        <textarea name="message" rows="10" placeholder="Message" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <button type="button" class="btn">Send message</button>
+    </div>
+</form>
+
+<div class="address">
+    <div class="map">
+        <img src="/static/img/about-map.jpg"
+             data-fit-width="261" data-fit-height="251"
+             data-clip="about-map">
+    </div>
+    <div class="info" data-clip="info">
+    <p>
+        <strong>DataFly</strong> <br>
+        75 Red Hill Ave, San Anselmo, CA 94960
+    </p>
+    <table>
+        <tr>
+            <td>Phone</td>
+            <td>(415) 781-9370</td>
+        </tr>
+        <tr>
+            <td>Fax</td>
+            <td>(415) 781-9370</td>
+        </tr>
+        <tr>
+            <td>E-mail</td>
+            <td><a href="mailto:info@datafly.net">info@datafly.net</a></td>
+        </tr>
+    </table>
+    </div>
+</div>
+
+{% endblock %}

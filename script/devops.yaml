@@ -1,0 +1,16 @@
+---
+ansible: 'datafly/ansible'
+project_root: '..'
+
+# EDIT BELOW
+
+project: 'starter'
+hosts: ['root@datafly.net']
+
+# trailing slash is important
+remote_path: '/home/datafly/starter/'
+
+# production host
+host: 'starter.datafly.net'
+# staging host
+host_staging: 'staging.starter.datafly.net'

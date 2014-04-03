@@ -1,0 +1,28 @@
+{% set title = 'Login' %}
+{% set namespace = 'login' %}
+
+{% extends layout %}
+{% import 'datafly/templates/forms.html' as forms with context %}
+
+{% block content %}
+
+<form action="/admin/login" id="login" class="form-horizontal">
+
+    <fieldset class="state" id="login">
+        {% call forms.alert('LoginError', 'danger') %}
+            We apologize! We don't recognize that login information. <br>
+            Would you kindly try again or reset your password.
+        {% endcall %}
+
+        {{ forms.hf_input('Email', 'email') }} 
+        {% call forms.hf_input('Password', 'password', type='password') %}
+            <a href="#" class="switch-state">Forgot password?</a>
+        {% endcall %}
+
+        {{ forms.hf_checkbox('Remember Me', 'remember', checked=True) }}
+        {{ forms.hf_button('Login') }}
+    </fieldset>
+
+</form>
+
+{% endblock %}

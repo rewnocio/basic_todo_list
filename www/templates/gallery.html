@@ -1,0 +1,27 @@
+{% set namespace = 'gallery' %}
+{% set hide_wrapper = True %}
+{% extends layout %}
+
+{% block content %}
+
+<h2>{{ gallery.title|upper }}</h2>
+<div class="hr"></div>
+
+<div id="bootstrap-carousel" class="carousel slide">
+    <div class="carousel-inner">
+        {% for pic in gallery.pics %}
+            <div class="item {{ 'active' if loop.first }}">
+                <img src="{{ pic }}" alt="">
+            </div>
+        {% endfor %}
+    </div>
+    <!-- Controls -->
+    <a class="left carousel-control" href="#bootstrap-carousel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#bootstrap-carousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,70 @@
+{% import 'pagination.html' as pagination with context %}
+
+{% macro addthis(p) %}    
+
+    {% if addthis_id %}
+
+    {% set id = p.id %}
+    <!-- AddThis Button BEGIN -->
+    <div class="addthis_toolbox addthis_default_style ">
+    <a class="addthis_button_tweet" tw:count="vertical" tw:url="http://{{ config.BASE_URL }}/{{ id }}"></a>
+    <a class="addthis_button_facebook_like" fb:like:layout="box_count" fb:like:href="http://{{ config.BASE_URL }}/{{ id }}"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="tall" g:plusone:href="http://{{ config.BASE_URL }}/{{ id }}"></a>
+    </div>
+    <!-- AddThis Button END -->
+    <script type="text/javascript">
+        var addthis_config = { "data_track_addressbar": false };
+    </script>
+    <script type="text/javascript"
+            src="//s7.addthis.com/js/300/addthis_widget.js#pubid={{ addthis_id }}">
+    </script>
+    <!-- AddThis Button END -->
+    
+    {% endif %}
+
+{% endmacro %}
+
+{% if single_post and fb_id %}
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_EN/all.js#xfbml=1&appId={{ fb_id }}";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+{% endif %}
+
+{% if not (single_post or author or query) %}        
+    <h1>{{ blog_title }}{{ ' - '+month if month }}</h1>
+{% endif %}
+
+{% if author %}
+    <h1>{{ blog_title }} - Posts by {{ author }}</h1>
+{% endif %}
+{% if tag %}
+    <h1>{{ blog_title }} - Posts tagged as '{{ tag }}'</h1>
+{% endif %}
+{% if query %}
+    <h1>{{ blog_title }} - Search for '{{ query }}'</h1>
+{% endif %}
+
+{% if single_post %}
+    <h4 class="back">
+        <i class="icon-arrow-left"></i>
+        <a href="/blog">Back to Blog Index</a>
+    </h4>
+{% endif %}
+
+{% for p in posts %}
+    <article class="blog">
+        {% include "blog/post.html" %}
+    </article>
+{% endfor %}
+
+{% if single_post %}
+    <div class="fb-comments" data-href="{{ config.BASE_URL }}/{{ posts[0].id }}"
+         data-width="640" data-num-posts="10"></div>
+{% else %}
+   {{ pagination.dropdown() }}
+{% endif %}

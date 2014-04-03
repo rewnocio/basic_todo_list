@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% include head %}
+    {% include 'public/css.html' %}
+</head>
+
+<body class="{{ namespace }}">
+
+    <header class="wrapper">
+        <h1> Basic To-Do List Manager </h1>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="navbar-collapse collapse">
+                {% include 'public/nav.html' %}
+            </div>
+        </nav>        
+    </header>
+
+    <div class="content wrapper">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <footer class="wrapper">
+        Built in <strong>DataFly</strong>.
+    </footer>
+
+    {% include scripts %}
+    {% include 'public/js.html' %}
+
+</body>
+</html>

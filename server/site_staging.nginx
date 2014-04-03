@@ -1,0 +1,21 @@
+server {
+    listen 80;
+    server_name staging.starter.datafly.net;
+
+    location = /robots.txt {
+            rewrite (.*) /static/robots.txt;
+    }
+
+    location = /favicon.ico {
+            rewrite (.*) /static/favicon.ico;
+    }
+
+    location /static/ {
+            root /home/datafly/starter/staging/www;
+    }
+
+    location / {
+            include uwsgi_params;
+            uwsgi_pass unix:///tmp/uwsgi-starter-staging.sock;
+    }
+}

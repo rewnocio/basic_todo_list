@@ -1,0 +1,128 @@
+.content {
+  padding-bottom: 30px;
+  overflow: auto;
+}
+.content h2 {
+  margin: 30px 0px;
+}
+body.home div.person {
+  margin-left: -15px;
+  margin-right: -15px;
+  padding-bottom: 30px;
+}
+body.home div.person:before,
+body.home div.person:after {
+  content: " ";
+  /* 1 */
+
+  display: table;
+  /* 2 */
+
+}
+body.home div.person:after {
+  clear: both;
+}
+body.home div.person .photo {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  min-width: 250px;
+}
+@media (min-width: 768px) {
+  body.home div.person .photo {
+    float: left;
+    width: 25%;
+  }
+}
+body.home div.person .desc {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  body.home div.person .desc {
+    float: left;
+    width: 66.66666666666666%;
+  }
+}
+body.home div.person h3 strong {
+  margin-right: 10px;
+}
+body.news .row {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+body.news .row:before,
+body.news .row:after {
+  content: " ";
+  /* 1 */
+
+  display: table;
+  /* 2 */
+
+}
+body.news .row:after {
+  clear: both;
+}
+body.news article.news {
+  padding-bottom: 20px;
+}
+body.news article.news.odd {
+  clear: both;
+}
+body.news article.news .date {
+  color: #999;
+  margin-bottom: 10px;
+}
+body.news article.news.multi {
+  margin-left: -10px;
+  margin-right: 10px;
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  body.news article.news.multi {
+    float: left;
+    width: 50%;
+  }
+}
+body.contact #contact-form {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: 30px;
+}
+@media (min-width: 768px) {
+  body.contact #contact-form {
+    float: left;
+    width: 50%;
+  }
+}
+body.contact .address {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  body.contact .address {
+    margin-left: 8.333333333333332%;
+  }
+}
+@media (min-width: 768px) {
+  body.contact .address {
+    float: left;
+    width: 41.66666666666667%;
+  }
+}
+body.contact .address .map {
+  margin-bottom: 20px;
+}
+body.contact .address table {
+  width: 100%;
+}

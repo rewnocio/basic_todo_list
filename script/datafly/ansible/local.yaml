@@ -1,0 +1,27 @@
+# create:
+# nginx - server/site.nginx (and/or site_staging.nginx)
+# uWSGI - server/uwsgi.ini (and/or uwsgi_staging.ini)
+
+# PRODUCTION
+
+- name: 'create nginx configuration file for production'
+  when: host is defined
+  template: src=$ansible/templates/site.nginx  
+            dest=$project_root/server/
+
+- name: 'create uWSGI configuration file for production'
+  when: host is defined
+  template: src=$ansible/templates/uwsgi.ini  
+            dest=$project_root/server/
+
+# STAGING
+
+- name: 'create nginx configuration file for staging'
+  when: host_staging is defined
+  template: src=$ansible/templates/site_staging.nginx
+            dest=$project_root/server/
+
+- name: 'create uWSGI configuration file for staging'
+  when: host_staging is defined
+  template: src=$ansible/templates/uwsgi_staging.ini 
+            dest=$project_root/server/

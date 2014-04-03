@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Admin / {{ title }}</title>
+    {% include head %}
+    {% include 'admin/css.html' %}
+</head>
+
+<body class="admin {{ namespace }}">
+    <div class="notifications center"></div>
+
+    <header>
+        <h1>{{ admin_title }}</h1>
+        <div class="toolbar">
+            {% if show_editor %}
+                {% include 'admin/toolbar.html' %}
+            {% endif %}            
+            {% block header %}                    
+            {% endblock %}
+        </div>
+    </header>
+
+    <aside>       
+        {% if user %}
+            {% include 'admin/nav.html' %}
+        {% endif %}        
+    </aside>   
+
+    <div class="content {{ 'default-page' if default }}">  
+        
+        <!-- File/img upload, external to any Redactor -->
+        <div id="hidden-upload">
+            <div id="hidden-upload-redactor"></div>
+        </div> 
+
+        <!-- Page meta properties -->
+        <form id="meta">
+            {% if page and 'created' in page.meta %}
+                <input type="hidden" name="created"
+                       value="{{ page.meta.created.strftime('%Y-%m-%d %H:%M:%S') }}">
+            {% endif %}   
+            <div class="meta">{% if show_editor %}
+                <label>Meta Title:</label>
+                <input type="text" name="title"
+                       value="{{ page.meta.title if page and page.meta }}"
+                       placeholder="Enter meta title here...">
+                <br>
+                <label>Meta Description:</label>
+                <input type="text" name="description"
+                       value="{{ page.meta.description if page and page.meta }}"
+                       placeholder="Enter meta description here...">
+                    {{ html }}            
+                {% endif %}{% block meta %}{% endblock %}{#
+          #}</div>        
+        </form>
+        {% block content %}
+        {% endblock %}        
+    </div>
+
+    <footer></footer>
+
+    {% include scripts %}
+
+    {% include 'admin/js.html' %}    
+    
+</body>
+</html>

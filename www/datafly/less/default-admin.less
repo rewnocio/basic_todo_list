@@ -1,0 +1,220 @@
+// Layout
+
+html, body {
+    height: 100%;    
+}
+
+body, h1, h2, h3, h4 {
+    font-family: 'Lato', sans-serif;
+}
+
+#login label {
+    font-weight: normal;
+}
+
+body.admin {            
+    font-size: 14px;
+    line-height: 1.5;
+    padding-top: 50px;
+
+    > header {
+        position: fixed;
+        z-index: 1000;
+        top: 0px;
+        width: 100%;    
+        height: 35px;   
+        background-color: #197DCE; 
+        color: #fff;
+        border-bottom: 1px solid #000; 
+        h1 {
+            padding: 0px;
+            padding-top: 9px;
+            margin: -3px 0px 0px 30px;
+            font-size: 20px;
+            font-weight: normal;
+        }  
+        div.toolbar {
+            position: absolute;
+            left: 220px;
+            width: 100%;
+            max-width: 1000px;
+            top: 1px;
+            padding-top: 2px;            
+            .btn.pull-right {
+                margin-right: 10px;
+            }
+        }        
+        div.toolbar-save {     
+            position: relative; 
+            z-index: 100;                      
+            .btn {
+                padding: 2px 10px 4px 10px;
+            }
+        }
+    }
+
+    > aside {
+        position: absolute;
+        top: 27px;
+        left: 0px;
+        width: 200px;
+        padding-top: 30px;
+        background-color: #ebebeb;
+        min-height: 100%;
+        .nav-header,
+        .nav-list > li > a {
+            padding-left: 30px;                
+        }
+        .nav-list > li > a {
+            font-size: 13px;
+        }
+    }
+
+    > .content {
+        border-left: 200px solid #ebebeb;
+        padding-left: 20px;
+        max-width: 1000px;
+        padding-right: 20px;
+
+        #hidden-upload {
+            position: absolute;
+            top: -9000px;
+            height: 1px;
+            overflow: hidden; 
+        }
+
+        h2.admin {
+            padding: 14px 0px;
+            margin: 0px 0px 10px 0px;
+        }
+
+        .meta {
+            padding-top: 8px;
+            padding-left: 4px;
+            margin-bottom: 15px;
+            border-bottom: 1px dashed #bbb;
+            label {
+                color: #aaa;
+                font-size: 12px;
+            }
+            input {
+                font-size: 13px;
+                position: relative;
+                top: 0px;
+                left: 5px;  
+                width: 80%;
+                box-shadow: none;
+                transition: none;
+                border: none;
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+        .meta:empty{
+            display: none;
+        }
+
+        .redactor_box {
+            .redactor_editor {
+                overflow: visible;
+            }
+            border: none;
+        }
+
+        &.default-page .redactor_box {
+            border: 0px;
+        }
+    }   
+}
+
+// bootstrap overrides
+
+.df-pagination {
+    float: right;    
+    margin: 0px;
+    margin-right: 10px;
+}
+
+// redactor overrides
+.redactor_toolbar {    
+    background: none;
+    border: none;
+    li {
+        margin-right: 2px !important;
+    }
+    li.redactor_separator {
+        display: none;
+    }
+    li > a {        
+        background-color: #f0f0f0;
+        border-radius: 1px;
+        border: 0px;            
+    }
+    li > a.redactor_act,
+    li > a:hover {
+        background-color: #fff;
+    }
+}
+
+.toolbar-save .version {    
+    display: inline-block;
+    background-color: #eee;
+    border-radius: 4px;
+    a {
+        color: #000;
+    }
+}
+
+// Login page
+
+body.login form {
+    margin-top: 50px;
+    margin-left: 100px;
+
+    .switch-state {
+        display: none;
+    }
+}
+
+// notifications
+
+.alert {
+    margin-left: -15px;
+}
+
+.notifications {
+  position: fixed;
+  z-index: 10000;
+}
+.notifications.top-right {
+  right: 10px;
+  top: 25px;
+}
+.notifications.top-left {
+  left: 10px;
+  top: 25px;
+}
+.notifications.bottom-left {
+  left: 10px;
+  bottom: 25px;
+}
+.notifications.bottom-right {
+  right: 10px;
+  bottom: 25px;
+}
+.notifications > div {
+  position: relative;
+  z-index: 9999;
+  margin: 5px 0px;
+}
+.notifications.center {
+  top: 48%;
+  left: 0;
+  width: 100%;
+}
+.notifications.center > div {
+  margin: 5px auto;
+  width: 20%;
+  text-align: center;
+}

@@ -1,0 +1,137 @@
+{% macro alert(id, class='success') %}
+    <div class="alert alert-{{ class }} hidden" id="alert{{ id }}">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ caller() }}
+    </div>
+{% endmacro %}
+
+
+{% macro hf_select_country(obj=None) %}
+<div class="form-group">
+    <label class="control-label">Country</label>
+    <div class="controls">
+    <select class="input-xlarge" name="country" id="country">
+    {% for country in countries %}
+      <option value="{{ country.name }}"
+              {{ 'selected' if country.name == 'United States' and not obj }}
+              {{ 'selected' if obj and country.name == obj.country }}>
+          {{ country.name }}
+      </option>
+    {% endfor %}
+    </select>
+    </div>
+</div>
+{% endmacro %}
+
+
+{% macro hf_select_state(obj=None) %}
+<div class="form-group state">
+    <label class="control-label">State</label>
+    <div class="controls">
+    <select data-placeholder="State" class="state" name="state"  id="state">
+        <option value=""></option>
+        {% for state in us_states %}
+            <option value="{{ state }}"
+                    {{ 'selected' if obj and state|string == obj.state }}> 
+                {{ state }}
+            </option>
+        {% endfor %}
+    </select>
+    </div>
+</div>
+{% endmacro %}
+
+
+{% macro hf_input(title, key, obj=None, type="text", id=None, class="input-xlarge",
+                  placeholder="", required=True) %}
+    {% set obj = values if values else obj %}
+    <div class="form-group">
+        <label class="control-label" for="{{ key }}">
+            {{ title }}
+        </label>
+        <div class="controls">
+            {{ input(key, obj, type, id, class, placeholder, required) }}
+            {% if caller %}
+                {{ caller() }}                
+            {% endif %}
+        </div>
+    </div>
+{% endmacro %}
+
+
+{% macro hf_textarea(title, key, obj=None, id=None, class="input-xlarge",
+                     placeholder="", required=True) %}
+    {% set obj = values if values else obj %}
+    <div class="form-group">
+        <label class="control-label" for="{{ key }}">
+            {{ title }}
+        </label>
+        <div class="controls">
+            <textarea name="{{ key }}" id="{{ id if id else key.replace('.', '_') }}"
+                      class="{{ class }}"
+                      {{ 'data-required="true"' if required }}
+                      placeholder="{{ placeholder }}"
+                      rows="5">{{ obj|getkey(key) }}</textarea>
+            {% if caller %}
+                {{ caller() }}                
+            {% endif %}
+        </div>
+    </div>
+{% endmacro %}
+
+
+{% macro input(key, obj=None, type="text", id=None, class="input-xlarge",
+                  placeholder="", required=True) %}
+    {% set obj = values if values else obj %}
+    <input type="{{ type }}"
+                   name="{{ key }}" id="{{ id if id else key.replace('.', '_') }}"
+                   value="{{ obj|getkey(key) }}"
+                   class="{{ class }}"
+                   {{ 'data-required="true"' if required }}
+                   placeholder="{{ placeholder }}">
+{% endmacro %}                   
+
+
+{% macro hf_checkbox(title, key, value='on', id=None, obj=None, checked=False) %}
+    {% set obj = values if values else obj %}
+    <div class="form-group">
+        <div class="controls">  
+            {{ checkbox(title, key, value, obj, id, checked) }}
+        </div>
+    </div> 
+{% endmacro %}
+
+
+{% macro checkbox(title, key, value, obj=None, id=None, checked=False) %}
+    {% set obj = values if values else obj %}
+    <label class="checkbox">
+        <input name="{{ key }}"
+               id="{{ id }}"
+               value="{{ value }}"
+               {{ 'checked' if checked }} 
+               type="checkbox"> {{ title }}
+    </label>
+{% endmacro %}
+
+
+{% macro hf_button(title, type="submit", id=None, class='', disabled=False, data={}) %}
+    <div class="form-group">
+        <div class="controls">
+            {{ button(title, type, id, class, disabled, data) }}
+        </div>
+    </div>
+{% endmacro %}
+
+
+{% macro button(title, type="submit", id=None, class='', disabled=False, data={}) %}
+    <button type="{{ type }}" class="btn {{ class }}"
+            {% if id %}
+                id="{{ id }}"
+            {% endif %}
+            {{ 'disabled' if disabled }}
+            {% for key, value in data.items() %}
+                data-{{ key }} = "{{ value }}"
+            {% endfor %}>
+            {{ title }}                    
+    </button>
+{% endmacro %}

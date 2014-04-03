@@ -1,0 +1,11 @@
+body.admin > aside {
+  position: fixed;
+}
+div.redactor_editor:hover {
+  cursor: pointer;
+  box-shadow: 0 0 3px 2px #eee;
+}
+[data-clip]:hover {
+  cursor: pointer;
+  box-shadow: 0 0 3px 2px #4aa;
+}
